@@ -73,7 +73,6 @@
         text-align: center;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         z-index: 2;
-        position: relative;
       }
 
       .gift-card h1 {
@@ -169,60 +168,16 @@
 
       /* Mobile responsiveness */
       @media (max-width: 768px) {
-        .gift-card {
-          width: 90%;
-          padding: 15px;
-        }
-
-        .gift-card h1 {
-          font-size: 22px;
-        }
-
-        .gift-card p {
-          font-size: 16px;
-        }
-
-        .gift-card img {
-          width: 70px;
-        }
-
         .wish {
-          font-size: 30px;
-        }
-
-        .gifts img {
-          width: 80px;
+          font-size: 30px; /* Smaller font size for medium screens */
+          top: 15%; /* Adjust position to look better on smaller screens */
         }
       }
 
       @media (max-width: 480px) {
-        .gift-card {
-          width: 90%;
-          padding: 10px;
-        }
-
-        .gift-card h1 {
-          font-size: 20px;
-        }
-
-        .gift-card p {
-          font-size: 14px;
-        }
-
-        .gift-card img {
-          width: 60px;
-        }
-
         .wish {
-          font-size: 28px;
-        }
-
-        .gifts img {
-          width: 70px;
-        }
-
-        .snowflake {
-          font-size: 1em;
+          font-size: 24px; /* Even smaller font size for small screens */
+          top: 10%; /* Adjust further for small screens */
         }
       }
     </style>
