@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merry Christmas Gift</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url("https://media1.tenor.com/m/xrbZAUgf66cAAAAd/merry-christmas.gif")
+          no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+      }
+
+      /* Christmas Decoration Frame with Opacity */
+      .frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("Image/rb_26699.png"), no-repeat center center fixed;
+        background-size: cover;
+        opacity: 0.5; /* Set opacity to 0.5 */
+        z-index: 1;
+      }
+
+      /* Snowflake animation */
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        color: white;
+        font-size: 1.5em;
+        animation: fall linear infinite, sway 4s ease-in-out infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+
+      @keyframes sway {
+        0% {
+          transform: translateX(-15px);
+        }
+        50% {
+          transform: translateX(15px);
+        }
+        100% {
+          transform: translateX(-15px);
+        }
+      }
+
+      /* Centered gift card */
+      .gift-card {
+        background: rgba(255, 61, 71, 0.9);
+        color: white;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+      }
+
+      .gift-card h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .gift-card p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .gift-card button {
+        background: #fff;
+        color: #ff3d47;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .gift-card button:hover {
+        background: #ff9a2d;
+        color: #fff;
+      }
+
+      .gift-card img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+
+      .gifts {
+        margin-top: 20px;
+        display: none; /* Initially hidden */
+      }
+
+      .gifts img {
+        width: 100px;
+        margin: 10px;
+      }
+
+      /* Wish Animation with color change */
+      .wish {
+        display: none; /* Initially hidden */
+        position: absolute;
+        top: 20%; /* Position above the red box */
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        font-size: 36px;
+        color: white;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        animation: wishAnimation 2s ease forwards, colorChange 6s infinite;
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Ensure it doesn't overflow */
+        text-overflow: ellipsis; /* If the text is too long, show an ellipsis */
+        z-index: 3;
+      }
+
+      @keyframes wishAnimation {
+        0% {
+          transform: translate(-50%, -50%) scale(0);
+          opacity: 0;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes colorChange {
+        0% {
+          color: white;
+        }
+        25% {
+          color: red;
+        }
+        50% {
+          color: green;
+        }
+        75% {
+          color: gold;
+        }
+        100% {
+          color: white;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gift-card h1 {
+          font-size: 20px;
+        }
+
+        .gift-card p {
+          font-size: 16px;
+        }
+
+        .gifts img {
+          width: 80px;
+        }
+
+        .wish {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Christmas Decoration Frame with Opacity -->
+    <div class="frame"></div>
+
+    <!-- Falling Snowflakes -->
+    <div class="snowflake" style="left: 10%; animation-duration: 5s">❄</div>
+    <div class="snowflake" style="left: 30%; animation-duration: 6s">❄</div>
+    <div class="snowflake" style="left: 50%; animation-duration: 7s">❄</div>
+    <div class="snowflake" style="left: 70%; animation-duration: 4s">❄</div>
+    <div class="snowflake" style="left: 90%; animation-duration: 8s">❄</div>
+
+    <!-- Christmas Wish -->
+    <div class="wish" id="wish">🎄 Merry Christmas and Happy New Year! 🎁</div>
+
+    <!-- Gift Card -->
+    <div class="gift-card">
+      <img
+        src="https://cdn-icons-png.flaticon.com/256/6477/6477047.png"
+        alt="Christmas Tree"
+      />
+      <h1>Merry Christmas!</h1>
+      <p>Wishing you joy, love, and peace this holiday season!</p>
+      <button onclick="showGifts()">Open Gift</button>
+      <div class="gifts" id="gifts">
+        <h2>Your Gift:</h2>
+        <img
+          src="https://cdn-icons-png.flaticon.com/256/5784/5784099.png"
+          alt="Christmas Gift"
+        />
+      </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="giftAudio" src="audio/make-a-wish-278996.mp3"></audio>
+
+    <script>
+      function showGifts() {
+        const giftsDiv = document.getElementById("gifts");
+        const audio = document.getElementById("giftAudio");
+        const wishDiv = document.getElementById("wish");
+        giftsDiv.style.display = "block"; // Show the gifts
+        audio.play(); // Play audio
+        wishDiv.style.display = "block"; // Show the wish
+      }
+
+      // Generate random snowflakes dynamically
+      setInterval(() => {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflake.textContent = "❄";
+        snowflake.style.left = Math.random() * 100 + "vw";
+        snowflake.style.animationDuration = Math.random() * 3 + 4 + "s";
+        snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+        document.body.appendChild(snowflake);
+
+        // Remove the snowflake after animation
+        setTimeout(() => {
+          snowflake.remove();
+        }, 8000);
+      }, 300);
+    </script>
+  </body>
+</html>
