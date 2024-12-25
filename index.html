@@ -73,6 +73,7 @@
         text-align: center;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         z-index: 2;
+        position: relative;
       }
 
       .gift-card h1 {
@@ -166,21 +167,62 @@
         }
       }
 
-      @media (max-width: 480px) {
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        .gift-card {
+          width: 90%;
+          padding: 15px;
+        }
+
         .gift-card h1 {
-          font-size: 20px;
+          font-size: 22px;
         }
 
         .gift-card p {
           font-size: 16px;
         }
 
+        .gift-card img {
+          width: 70px;
+        }
+
+        .wish {
+          font-size: 30px;
+        }
+
         .gifts img {
           width: 80px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gift-card {
+          width: 90%;
+          padding: 10px;
+        }
+
+        .gift-card h1 {
+          font-size: 20px;
+        }
+
+        .gift-card p {
+          font-size: 14px;
+        }
+
+        .gift-card img {
+          width: 60px;
         }
 
         .wish {
           font-size: 28px;
+        }
+
+        .gifts img {
+          width: 70px;
+        }
+
+        .snowflake {
+          font-size: 1em;
         }
       }
     </style>
