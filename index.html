@@ -28,7 +28,7 @@
         height: 100%;
         background: url("Image/rb_26699.png"), no-repeat center center fixed;
         background-size: cover;
-        opacity: 0.5; /* Set opacity to 0.5 */
+        opacity: 0.5;
         z-index: 1;
       }
 
@@ -62,17 +62,18 @@
         }
       }
 
-      /* Centered gift card */
+      /* Centered gift card with responsiveness */
       .gift-card {
         background: rgba(255, 61, 71, 0.9);
         color: white;
-        width: 90%;
+        width: 80%;
         max-width: 400px;
         padding: 20px;
         border-radius: 15px;
         text-align: center;
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
         z-index: 2;
+        position: relative;
       }
 
       .gift-card h1 {
@@ -108,7 +109,7 @@
 
       .gifts {
         margin-top: 20px;
-        display: none; /* Initially hidden */
+        display: none;
       }
 
       .gifts img {
@@ -116,20 +117,20 @@
         margin: 10px;
       }
 
-      /* Wish Animation with color change */
+      /* Wish animation with color change */
       .wish {
-        display: none; /* Initially hidden */
+        display: none;
         position: absolute;
-        top: 20%; /* Position above the red box */
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0);
         font-size: 36px;
         color: white;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         animation: wishAnimation 2s ease forwards, colorChange 6s infinite;
-        white-space: nowrap; /* Prevent text from wrapping */
-        overflow: hidden; /* Ensure it doesn't overflow */
-        text-overflow: ellipsis; /* If the text is too long, show an ellipsis */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         z-index: 3;
       }
 
@@ -168,16 +169,50 @@
 
       /* Mobile responsiveness */
       @media (max-width: 768px) {
+        .gift-card {
+          width: 90%; /* Make gift card more responsive */
+          padding: 15px; /* Adjust padding */
+        }
+
+        .gift-card h1 {
+          font-size: 20px; /* Smaller title font */
+        }
+
+        .gift-card p {
+          font-size: 16px; /* Smaller text size */
+        }
+
+        .gift-card button {
+          font-size: 14px; /* Smaller button font */
+        }
+
         .wish {
           font-size: 30px; /* Smaller font size for medium screens */
-          top: 15%; /* Adjust position to look better on smaller screens */
+          top: 15%;
         }
       }
 
       @media (max-width: 480px) {
+        .gift-card {
+          width: 60%;
+          padding: 10px; /* Even smaller padding */
+        }
+
+        .gift-card h1 {
+          font-size: 18px;
+        }
+
+        .gift-card p {
+          font-size: 14px;
+        }
+
+        .gift-card button {
+          font-size: 12px;
+        }
+
         .wish {
-          font-size: 24px; /* Even smaller font size for small screens */
-          top: 10%; /* Adjust further for small screens */
+          font-size: 16px; /* Even smaller font size for small screens */
+          top: 10%;
         }
       }
     </style>
